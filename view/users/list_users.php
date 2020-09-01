@@ -18,18 +18,7 @@
     <link rel="stylesheet" type="text/css" href="cssjs/css/index.css">
     <link rel="stylesheet" type="text/css" href="cssjs/css/loader.css">
     <link rel="stylesheet" type="text/css" href="cssjs/css/scroll.css">
-    <script>
-        var myVar;
 
-        function myFunction() {
-            myVar = setTimeout(showPage, 500);
-        }
-
-        function showPage() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("myDiv").style.display = "block";
-        }
-    </script>
 </head>
 <body onload="myFunction()" style="margin:0;">
 
@@ -50,9 +39,9 @@
                                     <h2>Manage <b>Users</b></h2>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
+                                    <a onclick="showAddModal()" class="btn btn-success" data-toggle="modal"><i
                                                 class="material-icons">&#xE147;</i> <span>Add New User</span></a>
-                                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
+                                    <a onclick="showDeleteModal()" class="btn btn-danger" data-toggle="modal"><i
                                                 class="material-icons">&#xE15C;</i> <span>Delete</span></a>
                                     <a href="index.php?action=logout" class="btn btn-warning">Logout</></a>
                                 </div>
@@ -122,12 +111,12 @@
                                                 <td><?php echo $row['created'] ?></td>
                                                 <td><?php echo $row['updated'] ?></td>
                                                 <td>
-                                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i
+                                                    <a onclick="showEditModal(<?php echo $row['id']?>)" class="edit" data-toggle="modal"><i
                                                                 class="material-icons" data-toggle="tooltip"
                                                                 title="Edit">&#xE254;</i></a>
-                                                    <a href="#deleteEmployeeModal" id="deleteBtn" class="delete"
-                                                       data-toggle="modal"><i class="material-icons"
-                                                                              data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                    <a  onclick="showDeleteModal(<?php echo $row['id']?>)"  id="deleteBtn" class="delete"
+                                                        data-toggle="modal"><i class="material-icons"
+                                                                               data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                                 </td>
                                             </tr>
 
@@ -167,60 +156,29 @@
         <!-- Edit Modal HTML -->
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <?php
 
-                    include "view/users/add_users.php";
-                    ?>
-                </div>
             </div>
         </div>
         <!-- Edit Modal HTML -->
         <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <?php
-                    include "view/users/edit_users.php";
 
-                    ?>
-
-                </div>
             </div>
         </div>
         <!-- Delete Modal HTML -->
         <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
-                <div class="modal-content">
 
-                    <form action="index.php?action=delete_users&id=<?php echo $id ?>" method="POST">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Delete Users</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="hidden" id="id_d" name="id" class="form-control">
-                            <p>Are you sure you want to delete these Records?</p>
-                            <p class="text-warning"><small>This action cannot be undone.</small></p>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input onclick="deleteAjax(<?php echo $result['id']; ?>)" type="submit"
-                                   class="btn btn-danger" id="delete" value="Delete">
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
-
-
         <script src="view/users/ajax/search.js"></script>
-        <script src="view/users/ajax/delete.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-
+        <script src="view/users/ajax/loader.js"></script>
         <script src="view/users/ajax/add.js"></script>
+        <script src="view/users/ajax/edit.js"></script>
         <script src="view/users/ajax/delete.js"></script>
         <script src="cssjs/js/index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"
                 integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"

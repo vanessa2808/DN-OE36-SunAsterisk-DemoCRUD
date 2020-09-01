@@ -1824,7 +1824,7 @@ var Dropdown = function ($) {
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta): modal.js
+ * Bootstrap (v4.0.0-beta): loader.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -2214,7 +2214,7 @@ var Modal = function ($) {
 
     // ----------------------------------------------------------------------
     // the following methods are used to handle overflowing modals
-    // todo (fat): these should probably be refactored out of modal.js
+    // todo (fat): these should probably be refactored out of loader.js
     // ----------------------------------------------------------------------
 
     Modal.prototype._adjustDialog = function _adjustDialog() {

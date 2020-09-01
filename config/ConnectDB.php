@@ -6,7 +6,7 @@ class ConnectDB
 {
     private $server = 'localhost';
     private $username = 'root';
-    private $password = '';
+    private $password = 'root';
     private $database = 'helloWorld1';
 
     protected function connect()

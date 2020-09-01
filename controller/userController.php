@@ -56,7 +56,6 @@ class UserController
                 break;
             case 'edit_users':
                 $id = $_GET['id'];
-                $model = new userModel();
                 $editUsers = $model->getUsers($id);
                 if (isset($_POST['edit_users_form'])) {
                     $name = $_POST['name'];
@@ -78,7 +77,6 @@ class UserController
                         $functionCommon->redirectPage('index.php?action=list_users');
                     }
                 }
-                include 'view/users/edit_users.php';
                 include "index.php";
                 break;
             default:

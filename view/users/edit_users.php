@@ -35,7 +35,7 @@
         </div>
         <div class="modal-footer">
             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-            <input type="submit" name="edit_users_form" class="btn btn-info" value="Save">
+            <input onclick="editAjax()" type="submit" name="edit_users_form" id="edit" class="btn btn-info" value="Save">
         </div>
     </div>
 </form>

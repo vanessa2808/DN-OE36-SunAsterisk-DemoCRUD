@@ -18,7 +18,7 @@ Class userModel extends ConnectDB
     {
         $sql = "SELECT * FROM users WHERE id = $id";
         $result = mysqli_query($this->connect(), $sql);
-        return $result->fetch_assoc();
+        return json_encode($result);
     }
 
     public function deleteUsers($id)
@@ -44,3 +44,4 @@ Class userModel extends ConnectDB
 
     }
 }
+

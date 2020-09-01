@@ -1,5 +1,7 @@
-<script src="view/users/ajax/add.js"></script>
-<form id="add_user_form" action="index.php?action=add_users" method="post" enctype="multipart/form-data">
+<div class="alert alert-success alert-dismissible" id="success" style="display:none;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+</div>
+<form id="formId" action="index.php?action=add_users" method="post" enctype="multipart/form-data">
     <div class="modal-header">
         <h4 class="modal-title">Add User</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -47,7 +49,7 @@
 
             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 
-            <input type="submit" class="btn btn-success" id="add_user_form" name="add_user_form" value="Add">
+            <input onclick="addAjax()" type="submit" class="btn btn-success" id="add_user_form" name="add_user_form" value="Add">
         </div>
     </div>
 
